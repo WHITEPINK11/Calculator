@@ -14,12 +14,21 @@ round(number) - Rounds to the nearest integer.
 Supports both manual input and file input.
 Maintains a calculation history.
 Validates expressions and ensures balanced brackets.
+
+
+
+
 How to Use
 Running the Calculator
 Compile the program:
 javac Calculator.java
+
+
 Run the program:
 java Calculator
+
+
+
 Choose an option from the menu:
 1 - Enter expressions manually
 2 - Read expressions from a file
@@ -66,7 +75,13 @@ Error Handling
 Detects unbalanced brackets.
 Handles division by zero.
 Catches invalid inputs and returns error messages.
+
+
+
 Dependencies
 Java SE (JDK 8+)
 License
+
+
+
 This project is open-source under the MIT License.
