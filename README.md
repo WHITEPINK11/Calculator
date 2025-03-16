@@ -38,10 +38,10 @@ Here are your options:
 Choose one of the options: 1
 
 Enter your expression (´｡• ᵕ •｡): 34+(76-45)*2 - abs(-5)
-(シ_ _)シ Result: 91
+ Result: 91
 File Input
 Create a text file (e.g., input.txt) with expressions, and choose option 2 and enter input.txt when prompted.
-Hello and welcome! This is your calculator! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+Hello and welcome! This is your calculator! 
 
 Here are your options:
 1) Enter expressions manually.
