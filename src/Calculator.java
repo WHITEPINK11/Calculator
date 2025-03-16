@@ -1,3 +1,4 @@
+// Connecting libraries
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -159,7 +160,7 @@ public class Calculator {
                     double firstNum = numberStack.removeLast();
                     double result = firstNum / secondNum;
                     if (Double.isInfinite(result) || Double.isNaN(result)) {
-                        return "Error: Division by zero is not allowed!!! (o_o)";
+                        return "Error: Division by zero is not allowed!!! ";
                     }
                     numberStack.addLast(result);
                 }
@@ -168,7 +169,7 @@ public class Calculator {
                     double firstNum = numberStack.removeLast();
                     double result = firstNum % secondNum;
                     if (Double.isInfinite(result) || Double.isNaN(result)) {
-                        return "Error: Division by zero is not allowed!!! (o_o)";
+                        return "Error: Division by zero is not allowed!!!";
                     }
                     numberStack.addLast(result);
                 }
@@ -222,7 +223,7 @@ public class Calculator {
         Scanner input = new Scanner(System.in);
 
         while (true) {
-            System.out.print("\nEnter your expression (＾▽＾): ");
+            System.out.print("\nEnter your expression ");
             String userExpression = input.nextLine().trim();
 
             if (userExpression.isEmpty()) {
@@ -231,14 +232,14 @@ public class Calculator {
             }
 
             String result = calculateExpression(userExpression);
-            System.out.println("(o_o) Result: " + result);
+            System.out.println("(シ_ _)シ Result: " + result);
             calculationHistory.add(userExpression + " = " + result);
 
             System.out.print("\nDo you want to continue? (y/n): ");
             String userChoice = input.nextLine().trim();
 
             if (userChoice.equalsIgnoreCase("n")) {
-                System.out.println("Thanks for calculating!ヾ(･ω･｡)");
+                System.out.println("Thanks for calculating!");
                 break;
             }
             else if (!userChoice.equalsIgnoreCase("y")) {
@@ -256,7 +257,7 @@ public class Calculator {
         try {
             File inputFile = new File(fileName);
             Scanner fileScanner = new Scanner(inputFile);
-            System.out.println("\nReading your file: " + fileName + " (＾▽＾)");
+            System.out.println("\nReading your file: " + fileName );
 
             while (fileScanner.hasNextLine()) {
                 String userExpression = fileScanner.nextLine().trim();
@@ -274,6 +275,60 @@ public class Calculator {
 
         } catch (FileNotFoundException e) {
             System.out.println("Error: File '" + fileName + "' not found!!!");
+        }
+    }
+
+    // Method to display calculation history
+    private static void showHistory() {
+        if (calculationHistory.isEmpty()) {
+            System.out.println("\nNo calculations yet.");
+        }
+        else {
+            System.out.println("\nCalculation history:");
+            for (int i = 0; i < calculationHistory.size(); i++) {
+                System.out.println((i + 1) + ") " + calculationHistory.get(i));
+            }
+        }
+    }
+
+    // Main method with menu
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("\nHello and welcome! This is your calculator!");
+
+        while (true) {
+            System.out.println("\nHere are your options:");
+            System.out.println("1) Manually input.");
+            System.out.println("2) Read expressions from a file.");
+            System.out.println("3) Check  history.");
+            System.out.println("4) Exit.\n");
+            System.out.print("Choose one of the options: ");
+
+            if (input.hasNextInt()) {
+                int userOption = input.nextInt();
+                input.nextLine(); // Clear buffer
+
+                if (userOption == 1) {
+                    calculateManually();
+                }
+                else if (userOption == 2) {
+                    calculateFromFile();
+                }
+                else if (userOption == 3) {
+                    showHistory();
+                }
+                else if (userOption == 4) {
+                    System.out.println("\nGoodbye!");
+                    break;
+                }
+                else {
+                    System.out.println("Invalid option! Please choose between 1 and 4!");
+                }
+            }
+            else {
+                System.out.println("Invalid input! Please enter an integer! ");
+                input.nextLine(); // Clear buffer
+            }
         }
     }
 }
